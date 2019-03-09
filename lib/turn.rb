@@ -1,4 +1,5 @@
 #The first thing it needs to do is load our library of methods defined in lib/turn.rb.
+<<<<<<< HEAD
 require 'pry'
 
 
@@ -27,6 +28,9 @@ end
 =begin
 
 ## this was all wrong.  I cant use the counter due to it being reset, and got stuck in a loop
+=======
+
+>>>>>>> 460a6d09ee3cc04449437096cf37ffecd58a8dcf
 def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
@@ -37,6 +41,7 @@ def turn(board)
 
   counter = 0
 
+<<<<<<< HEAD
 
     if counter < 9 && position_taken?(board, index) == false && valid_move?(board, index) == true
       move(board, index, value = "X")
@@ -62,6 +67,26 @@ def turn(board)
 end
 
 =end
+=======
+    if counter < 9 && position_taken?(board, index) == false && valid_move?(board, index) == true
+      move(board, index, value = "X")
+      display_board(board)
+      counter = counter + 1
+      while counter <= 8
+        turn(board)
+      end
+    end
+    if counter < 9 && position_taken?(board, index) == true || valid_move?(board, index) == false
+      puts "Invalid move, please select again"
+      turn(board)
+    end
+    if counter == 9
+        puts "good game"
+    end
+end
+
+
+>>>>>>> 460a6d09ee3cc04449437096cf37ffecd58a8dcf
 
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
@@ -71,6 +96,7 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+<<<<<<< HEAD
 ## use nested if statements instead of logic threads ?
 
 def valid_move?(array, index)
@@ -78,6 +104,11 @@ def valid_move?(array, index)
     if position_taken?(array, index) == false
     true
     end
+=======
+def valid_move?(array, index)
+  if position_taken?(array, index) == false && index.between?(0,8)
+    true
+>>>>>>> 460a6d09ee3cc04449437096cf37ffecd58a8dcf
   else
     false
   end
